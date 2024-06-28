@@ -33,4 +33,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+note/next-env.d.ts
+
+### IntelliJ IDEA ###
+/.idea
+*.iws
+*.iml
+*.ipr
