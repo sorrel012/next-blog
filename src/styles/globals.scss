@@ -55,6 +55,10 @@ time, mark, audio, video {
   @include default-reset;
   font-family: 'Pretendard-Regular', sans-serif;
 }
+html,body {
+  height: 100vh;
+  overflow-y: auto;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
