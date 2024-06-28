@@ -83,3 +83,31 @@ h1, h2, h3, h4, h5, h6 {
   @include default-reset;
   font-family: 'GmarketSansMedium', sans-serif;
 }
+
+/* border */
+.border {
+  &-t {
+    &-1 {
+      border-top-width: 1px;
+    }
+
+    &-3 {
+      border-top-width: 3px;
+    }
+
+    &-5 {
+      border-top-width: 5px;
+    }
+  }
+  &-b {
+     &-1 {
+       border-bottom-width: 1px;
+     }
+     &-3 {
+       border-bottom-width: 3px;
+     }
+     &-5 {
+       border-bottom-width: 5px;
+     }
+   }
+}
