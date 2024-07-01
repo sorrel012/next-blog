@@ -129,4 +129,21 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom-width: 5px;
 }
 
+/* swiper */
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 1.5rem !important;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: darkgrey !important;
+}
+
+.swiper-button-prev {
+  margin-left: -12px !important;
+}
+
+.swiper-button-next {
+  margin-right: -12px !important;
+}
+
 /*# sourceMappingURL=globals.css.map */

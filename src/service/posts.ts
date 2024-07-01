@@ -22,3 +22,10 @@ export async function getFeaturedPosts() {
   featuredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
   return featuredPosts;
 }
+
+export async function getRecommendedPosts() {
+  const posts = await getPosts();
+  const recommendedPosts = posts.filter((post) => !post.featured);
+  recommendedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return recommendedPosts;
+}
