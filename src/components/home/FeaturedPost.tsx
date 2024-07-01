@@ -10,22 +10,27 @@ export default function FeaturedPost({
   category,
 }: Post) {
   return (
-    <Link href={`/posts/${path}`} className="rounded-md shadow-lg">
-      <Image
-        src={`/images/posts/${path}.png`}
-        alt={title}
-        width={300}
-        height={200}
-        className="rounded-t-md"
-      />
-      <div className="p-2 text-center">
-        <div className="text-right text-xs text-neutral-400">{date}</div>
-        <div className="font-semibold">{title}</div>
-        <div>{description}</div>
-        <div className="mx-auto mt-1 w-1/2 rounded-full bg-green-100 text-green-800">
-          {category}
+    <Link
+      href={`/posts/${path}`}
+      className="overflow-hidden rounded-md shadow-lg"
+    >
+      <article>
+        <Image
+          src={`/images/posts/${path}.png`}
+          alt={title}
+          width={300}
+          height={200}
+          className="w-full"
+        />
+        <div className="flex flex-col items-center gap-1 p-3">
+          <time className="self-end text-xs text-neutral-400">{date}</time>
+          <h3 className="font-semibold">{title}</h3>
+          <p className="w-full truncate text-center">{description}</p>
+          <span className="mx-auto my-1 w-1/2 rounded-full bg-green-100 px-2 text-center text-green-800">
+            {category}
+          </span>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }
