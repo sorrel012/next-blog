@@ -1,5 +1,6 @@
 import { Post } from '@/service/posts';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function FeaturedPost({
   title,
@@ -9,7 +10,7 @@ export default function FeaturedPost({
   category,
 }: Post) {
   return (
-    <article className="rounded-md shadow-lg">
+    <Link href={`/posts/${path}`} className="rounded-md shadow-lg">
       <Image
         src={`/images/posts/${path}.png`}
         alt={title}
@@ -25,6 +26,6 @@ export default function FeaturedPost({
           {category}
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
