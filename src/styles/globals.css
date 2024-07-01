@@ -92,6 +92,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "GmarketSansMedium", sans-serif;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  margin-right: -30px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 0.75);
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(194, 194, 194, 0.75);
+}
+
 /* border */
 .border-t-1 {
   border-top-width: 1px;
@@ -110,6 +127,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 .border-b-5 {
   border-bottom-width: 5px;
+}
+
+/* swiper */
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 1.5rem !important;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: darkgrey !important;
+}
+
+.swiper-button-prev {
+  margin-left: -12px !important;
+}
+
+.swiper-button-next {
+  margin-right: -12px !important;
 }
 
 /*# sourceMappingURL=globals.css.map */

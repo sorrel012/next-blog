@@ -1,5 +1,13 @@
-import Image from 'next/image';
+import Profile from '@/components/home/Profile';
+import FeaturedPosts from '@/components/home/FeaturedPosts';
+import RecommendedPosts from '@/components/home/RecommendedPosts';
 
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <Profile />
+      <FeaturedPosts />
+      <RecommendedPosts />
+    </>
+  );
 }
