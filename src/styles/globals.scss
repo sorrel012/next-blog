@@ -88,6 +88,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'GmarketSansMedium', sans-serif;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  margin-right: -30px;
+  &-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  &-thumb {
+    background: rgba(217, 217, 217, 0.75);
+    border-radius: 15px;
+  }
+  &-thumb:hover {
+    background: rgba(194, 194, 194, 0.75);
+  }
+}
+
 /* border */
 .border {
   &-t {
