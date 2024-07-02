@@ -24,7 +24,7 @@ export default function FilterablePosts({ posts, categories }: Props) {
   };
 
   return (
-    <section>
+    <section className="flex justify-between gap-5 px-5">
       <PostsGrid posts={filteredPosts} />
       <Categories
         categories={categories}
