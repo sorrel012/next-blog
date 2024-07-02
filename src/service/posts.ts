@@ -29,3 +29,8 @@ export async function getRecommendedPosts() {
   recommendedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
   return recommendedPosts;
 }
+
+export async function getPostDetail(title) {
+  const filePath = path.join(process.cwd(), 'data/posts', `${title}.md`);
+  return await fs.readFile(filePath, 'utf-8');
+}
