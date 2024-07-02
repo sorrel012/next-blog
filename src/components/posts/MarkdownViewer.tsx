@@ -2,11 +2,12 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Image from 'next/image';
 
 export default function MarkdownViewer({ content }) {
   return (
     <Markdown
-      className="prose lg:prose-xl"
+      className="prose max-w-none"
       remarkPlugins={[remarkGfm]}
       components={{
         code(props) {
@@ -24,6 +25,17 @@ export default function MarkdownViewer({ content }) {
             <code {...rest} className={className}>
               {children}
             </code>
+          );
+        },
+        img(image) {
+          return (
+            <Image
+              src={image.src || ''}
+              alt={image.alt || ''}
+              width={500}
+              height={250}
+              className="max-h-60 w-full object-cover"
+            />
           );
         },
       }}
