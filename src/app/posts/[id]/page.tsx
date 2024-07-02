@@ -1,12 +1,18 @@
-import { getPostDetail } from '@/service/posts';
+import { getPostDetail, getPosts } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
 import { AiTwotoneCalendar } from 'react-icons/ai';
+import Stepper from '@/components/posts/Stepper';
 
 export default async function PostDetail({ params: { id } }) {
   const { title, description, date, path, content } = await getPostDetail(id);
+  const posts = await getPosts();
+  const index = posts.findIndex((post) => post.title === title);
+  const prevIndex = index - 1;
+  const nextIndex = index + 1;
+
   return (
-    <article className="mb-10 px-14">
+    <article className="px-14">
       <Image
         src={`/images/posts/${path}.png`}
         alt={title}
@@ -14,7 +20,7 @@ export default async function PostDetail({ params: { id } }) {
         height={420}
         className="mb-10 w-full"
       />
-      <section>
+      <section className="mb-6">
         <div className="flex items-center justify-end text-neutral-600">
           <AiTwotoneCalendar />
           <p>{date.toString()}</p>
@@ -26,6 +32,10 @@ export default async function PostDetail({ params: { id } }) {
           {description}
         </p>
         <MarkdownViewer content={content} />
+      </section>
+      <section className="flex">
+        {prevIndex >= 0 && <Stepper post={posts[prevIndex]} />}
+        {nextIndex < posts.length && <Stepper post={posts[nextIndex]} />}
       </section>
     </article>
   );
