@@ -13,18 +13,18 @@ export default function Categories({
 }: CategoryProps) {
   return (
     <nav className="flex flex-col items-center">
-      <h3 className="mb-1 font-semibold text-neutral-600">Category</h3>
-      <div className="flex flex-col">
+      <h2 className="mb-1 font-semibold text-neutral-600">Category</h2>
+      <ul className="flex flex-col">
         {categories.map((category) => (
-          <button
+          <li
             className={`${selectedCategory === category ? 'isCategoryActive' : null} text-neutral-500`}
             key={category}
             onClick={() => onClick(category)}
           >
             {category}
-          </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </nav>
   );
 }
