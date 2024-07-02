@@ -12,7 +12,7 @@ export default function RecommendedPost({
   return (
     <Link
       href={`/posts/${path}`}
-      className="mb-2 block h-full rounded-md px-7 shadow-lg"
+      className="mb-2 block h-full overflow-hidden rounded-md shadow-lg *:text-sm"
     >
       <article className="relative h-full">
         <div className="relative h-40 w-full">
