@@ -2,8 +2,8 @@
 
 import { Post } from '@/service/posts';
 import { useState } from 'react';
-import FeaturedPost from '@/components/home/FeaturedPost';
 import Categories from '@/components/posts/Categories';
+import PostsGrid from '@/components/PostsGrid';
 
 interface Props {
   posts: Post[];
@@ -25,11 +25,7 @@ export default function FilterablePosts({ posts, categories }: Props) {
 
   return (
     <section>
-      <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {filteredPosts.map((post) => (
-          <FeaturedPost key={post.title} {...post} />
-        ))}
-      </div>
+      <PostsGrid posts={filteredPosts} />
       <Categories
         categories={categories}
         selectedCategory={selectedCategory}
