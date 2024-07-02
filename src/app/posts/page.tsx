@@ -1,3 +1,13 @@
-export default function PostsPage() {
-  return <h1>하이</h1>;
+import { getPosts } from '@/service/posts';
+import FilterablePosts from '@/components/posts/FilterablePosts';
+
+export default async function PostsPage() {
+  const posts = await getPosts();
+  const categories = [...new Set(posts.map((post) => post.category))];
+
+  return (
+    <>
+      <FilterablePosts posts={posts} categories={categories} />
+    </>
+  );
 }

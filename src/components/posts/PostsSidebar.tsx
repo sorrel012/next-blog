@@ -1,17 +1,10 @@
 'use client';
 
-const categories = [
-  'All Posts',
-  'my story',
-  'frontend',
-  'backend',
-  'javascript',
-];
-export default function PostsSidebar() {
+export default function PostsSidebar({ categories }) {
   return (
-    <nav>
+    <nav className="flex flex-col items-center">
       <h3 className="mb-1">Category</h3>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col">
         {categories.map((category) => (
           <button key={category}>{category}</button>
         ))}
