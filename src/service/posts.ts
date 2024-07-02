@@ -10,6 +10,12 @@ export interface Post {
   featured: boolean;
 }
 
+export interface PostData extends Post {
+  content: string;
+  prevPost: Post | null;
+  nextPost: Post | null;
+}
+
 export async function getPosts(): Promise<Post[]> {
   const filePath = path.join(process.cwd(), 'data', 'posts.json');
   const data = await fs.readFile(filePath, 'utf-8');
@@ -30,13 +36,16 @@ export async function getRecommendedPosts() {
   return recommendedPosts;
 }
 
-export async function getPostDetail(fileName) {
+export async function getPostDetail(fileName): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
-  const metadata = await getPosts().then((posts) =>
-    posts.find((post) => post.path === fileName),
-  );
-  if (!metadata)
-    throw new Error(`${fileName}에 해당하는 포스트를 찾을 수 없음`);
+  const posts = await getPosts();
+  const post = posts.find((post) => post.path === fileName);
+  if (!post) throw new Error(`${fileName}에 해당하는 포스트를 찾을 수 없음`);
+
+  const index = posts.indexOf(post);
+  const prevPost = index > 0 ? posts[index - 1] : null;
+  const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
+
   const content = await fs.readFile(filePath, 'utf-8');
-  return { ...metadata, content };
+  return { ...post, content, prevPost, nextPost };
 }
