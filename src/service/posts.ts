@@ -30,7 +30,13 @@ export async function getRecommendedPosts() {
   return recommendedPosts;
 }
 
-export async function getPostDetail(title) {
-  const filePath = path.join(process.cwd(), 'data/posts', `${title}.md`);
-  return await fs.readFile(filePath, 'utf-8');
+export async function getPostDetail(fileName) {
+  const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
+  const metadata = await getPosts().then((posts) =>
+    posts.find((post) => post.path === fileName),
+  );
+  if (!metadata)
+    throw new Error(`${fileName}에 해당하는 포스트를 찾을 수 없음`);
+  const content = await fs.readFile(filePath, 'utf-8');
+  return { ...metadata, content };
 }
