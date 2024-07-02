@@ -17,7 +17,7 @@ export default function Categories({
       <ul className="flex flex-col">
         {categories.map((category) => (
           <li
-            className={`${selectedCategory === category ? 'isCategoryActive' : null} text-neutral-500`}
+            className={`${selectedCategory === category ? 'isCategoryActive' : null} hover: cursor-pointer text-neutral-500 hover:border-b-sky-500 hover:text-sky-500`}
             key={category}
             onClick={() => onClick(category)}
           >
