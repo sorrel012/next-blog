@@ -146,4 +146,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: -12px !important;
 }
 
+/* active */
+.isCategoryActive {
+  color: #c1e6ff;
+  border-bottom: 1px solid #c1e6ff;
+}
+
 /*# sourceMappingURL=globals.css.map */
