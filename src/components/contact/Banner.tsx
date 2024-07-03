@@ -12,7 +12,7 @@ export default function Banner({
   const icon = isSuccess ? '✔' : '🔥';
   return (
     <p
-      className={`px-2 py-1 ${isSuccess ? 'bg-green-300 text-green-800' : 'bg-red-300 text-red-300'} w-full max-w-md rounded-md`}
+      className={`px-2 py-1 text-center ${isSuccess ? 'bg-green-300 text-green-800' : 'bg-red-300 text-red-300'} w-full max-w-md rounded-md`}
     >{`${icon} ${message}`}</p>
   );
 }
