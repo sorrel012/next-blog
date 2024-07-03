@@ -1,5 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
+import { cache } from 'react';
 
 export interface Post {
   title: string;
@@ -16,11 +17,11 @@ export interface PostData extends Post {
   nextPost: Post | null;
 }
 
-export async function getPosts(): Promise<Post[]> {
+export const getPosts = cache(async () => {
   const filePath = path.join(process.cwd(), 'data', 'posts.json');
   const data = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(data);
-}
+});
 
 export async function getFeaturedPosts() {
   const posts = await getPosts();
